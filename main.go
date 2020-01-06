@@ -11,8 +11,9 @@ import (
 // *http.Request is a pointer
 // DOES NOT NEED TO BE CALLED handlerFunc, can be named anything actually
 func handlerFunc(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Someone visited our page") // prints out in the logs when fresh is running (ie does NOT print in webpage)
+	// fmt.Println("Someone visited our page") prints out in the logs when fresh is running (ie does NOT print in webpage)
 	// first argument is where you want it to print to
+	w.Header().Set("Content-Type", "text/html")
 	fmt.Fprint(w, "<h1>Welcome to my awesome site!</h1>")
 }
 
